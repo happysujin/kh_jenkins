@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: phptest
-        image: wallowitch2/phptest-deployment-jenkins:latest
+        image: sillydevils/phptest-deployment-jenkins:latest
         ports:
         - containerPort: 80
