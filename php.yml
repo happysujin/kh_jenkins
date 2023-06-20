@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phptest-deployment-jenkins
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: phptest-jenkins
+  template:
+    metadata:
+      labels:
+        app: phptest-jenkins
+    spec:
+      containers:
+      - name: phptest
+        image: wallowitch2/phptest-deployment-jenkins:latest
+        ports:
+        - containerPort: 80
